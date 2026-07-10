@@ -1,0 +1,16 @@
+{
+  "suite": {
+    "id": "reasoning-core",
+    "version": "1.0.0",
+    "tasks": [
+      {"id": "math-001", "prompt": "What is 6 * 7?", "expected": "42", "grader": "exact_match"},
+      {"id": "geo-001", "prompt": "Name Argentina's capital.", "expected": "Buenos Aires", "grader": "contains"}
+    ]
+  },
+  "candidates": [
+    {"id": "atlas", "model": "fixture", "model_version": "1", "prompt_version": "v3", "answers": {"math-001": "42", "geo-001": "Buenos Aires"}},
+    {"id": "nova", "model": "fixture", "model_version": "1", "prompt_version": "v2", "answers": {"math-001": "41", "geo-001": "The capital is Buenos Aires."}}
+  ],
+  "budget": {"max_steps": 20, "max_tokens": 8000, "timeout_seconds": 120},
+  "seed": 42
+}

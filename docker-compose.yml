@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    volumes: ["arena-runs:/data/runs"]
+    read_only: true
+    tmpfs: ["/tmp"]
+    network_mode: bridge
+  web:
+    build: ./web
+    ports: ["3000:3000"]
+    depends_on: [api]
+volumes:
+  arena-runs:
